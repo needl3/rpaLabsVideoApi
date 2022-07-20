@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+    <head>
+        <title>
+            Video App
+        </title>
+        <style>
+            body{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 1em;
+
+                background-color: antiquewhite;
+            }
+            .video_item{
+                padding: 1em;
+                border: 3px solid aqua;
+                border-radius: 1em;
+            }
+        </style>
+    </head>
+    <body>
+        {% for i in videos %}
+            <div class="video_item">
+                <video controls width="700" height="500">
+                    <source src="{{ i.data.url }}">
+                </video>
+            </div>
+        {% endfor %}
+    </body>
+</html>
