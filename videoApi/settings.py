@@ -32,7 +32,10 @@ SECRET_KEY = env("APP_SECRET")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost"]
+# SECURITY WARNING: don't allow all hosts
+# I turned this on only to check on longer network route of ngrok
+# To test an endpoint that returns videos being uploaded
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -131,3 +134,9 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, MEDIA_URL)
+
+FILE_UPLOAD_HANDLERS = ("django.core.files.uploadhandler.MemoryFileUploadHandler",
+                        "django.core.files.uploadhandler.TemporaryFileUploadHandler",)
+
+# System's temporary directory
+FILE_UPLOAD_TEMP_DIR = "/tmp/"

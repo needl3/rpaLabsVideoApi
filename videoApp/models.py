@@ -7,10 +7,6 @@ class Video(models.Model):
     title = models.CharField(max_length=200, default="Video Title")
     videoSummary = models.TextField(default="Video Summary")
 
-    # Status to keep track if the file is being uploaded, deleted or has been uploaded
-    # I don't think this will work but I'm still going to try
-    status = models.CharField(max_length=100, default="Upload status")
-
     type = models.CharField(max_length=100, default="mp4")
 
     # Actual binary data is stored as FileField in static/uploads

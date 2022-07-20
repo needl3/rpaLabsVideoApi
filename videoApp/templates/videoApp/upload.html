@@ -3,10 +3,26 @@
         <title>
             Video App
         </title>
+        <style>
+            body{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            form{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                gap: 1em;
+            }
+        </style>
     </head>
     <body>
-        <form method="POST" enctype="multipart/form-data" action="upload/">
+        <form method="POST" enctype="multipart/form-data" action="{% url 'videoApp:apiUpload'%}">
             <input type="file" name="data">
+            <label for="title">Title: <input type="text" name="title" value="Title"></label>
+            <label for="summary">Summary: <input type="text" name="summary" value="Summary"></label>
             <button type="submit">Upload</button> 
         </form>
     </body>
