@@ -91,7 +91,7 @@ Requires:
     {
         "type(str)": "[mkv / mp4] ie video type",
         "length(str/int)":"Video length in seconds",
-        "size(int)": "Size of video file"
+        "size(int)": "Size of video file in KB"
     }
 
 Respose:
@@ -131,7 +131,8 @@ Respose:
 ## Known shortcomings
 
 Because the instructions didn't require me to implement and I was short on time
-Cannot modify video data once uploaded, even from admin panel because I'm relying on temporary file on system's `/tmp` directory to validate upload request
-Cannot delete video except from admin panel
+
+    -    Cannot modify video data once uploaded, even from admin panel because I'm relying on temporary file on system's `/tmp` directory to validate upload request
+    -    Cannot delete video except from admin panel
 
 ## Made for Python internship's technical round at RPA Labs

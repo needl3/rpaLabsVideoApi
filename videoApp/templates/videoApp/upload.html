@@ -19,10 +19,22 @@
             }
             form{
                 display: flex;
-                justify-content: center;
-                align-items: center;
                 flex-direction: column;
                 gap: 1em;
+
+            }
+            form *{
+                padding: .5em;
+                text-align: center;
+            }
+            button{
+                border: 0;
+                border-radius: 1em;
+                background-color: rgb(223, 112, 78);
+            }
+            button:hover{
+                transform: scale(1.1);
+                transition: .3s;
             }
         </style>
         <script>
@@ -50,10 +62,10 @@
     </head>
     <body>
         <form enctype="multipart/form-data" action="{% url 'videoApp:apiUpload'%}" id="Form" method="POST">
-            <input type="file" name="data">
             <input type="number" name="videoId" hidden>
             <label for="title">Title: <input type="text" name="title" value="Title"></label>
             <label for="summary">Summary: <input type="text" name="summary" value="Summary"></label>
+            <input type="file" name="data">
             <button type="button" onclick="postForm()">Upload</button> 
         </form>
     </body>

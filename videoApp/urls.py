@@ -10,5 +10,5 @@ urlpatterns = [
     path('api/listUploading/', viewsApi.listUploading, name='apiListUploading'),
     path('api/charge/', viewsApi.charge, name='apiCharge'),
     path('api/', viewsApi.listUploaded, name='apiListUploaded'),
-    path('/', views.index, name='apiIndex'),
+    path('', views.index, name='apiIndex'),
 ]

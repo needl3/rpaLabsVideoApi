@@ -64,10 +64,10 @@ def upload(request):
             return JsonResponse({
                 "message": str(ve)
             }, code=400)
-
-    return JsonResponse({
-        "message": "You cannot just GET here.",
-    }, status=400)
+        except:
+            return JsonResponse({
+                "message": "You cannot just GET here naked.",
+            }, status=400)
 
 
 def listUploading(request):

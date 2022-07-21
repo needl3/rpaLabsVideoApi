@@ -4,6 +4,7 @@ from django.core.exceptions import ValidationError
 
 
 def calculateSizeCharge(fileSize):
+    # fileSize is in KB
     try:
         if int(fileSize) <= 500 * 1024:
             return 5
