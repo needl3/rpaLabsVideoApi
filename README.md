@@ -26,6 +26,13 @@ Make sure you have `python3` and `pip` installed on your system
 
 -   Run `./install`
 
+## How to upload and test the api
+
+-   Start the server
+-   Go to `http://localhost:<PORT>/video/`
+-   Upload a large file, or test with small by relaying through a longer network route by maybe using `portmap.io` or `ngrok` or your `private server`
+-   Test endpoint to list currently uploading file by `GET` ting at `/video/api/listUploading`
+
 ## Api docs
 
 Api endpoint for the videoApp in this django project is available in `/video/api` route to seperate it from other possible apps.
@@ -120,3 +127,11 @@ Respose:
                 }
         ]
     }
+
+## Known shortcomings
+
+Because the instructions didn't require me to implement and I was short on time
+Cannot modify video data once uploaded, even from admin panel because I'm relying on temporary file on system's `/tmp` directory to validate upload request
+Cannot delete video except from admin panel
+
+## Made for Python internship's technical round at RPA Labs
