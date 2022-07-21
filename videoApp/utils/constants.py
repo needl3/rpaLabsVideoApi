@@ -11,14 +11,14 @@ since it can overwhelm server's memory for high traffic.
 I will implement it in a file/database if I was serious about the system resources
 
 Structure of dictionary:
-uploadings = [
-    {
+uploadings = {
+    int(id): {
         "title":"<video_title>",
         "summary": "<video_summary>",
         "type": "<video_type>",
         "started_at":"<started_time>"
     }
-]
+}
 
 '''
 uploadings = dict()

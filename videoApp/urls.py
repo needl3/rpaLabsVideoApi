@@ -9,6 +9,6 @@ urlpatterns = [
     path('api/upload/', viewsApi.upload, name='apiUpload'),
     path('api/listUploading/', viewsApi.listUploading, name='apiListUploading'),
     path('api/charge/', viewsApi.charge, name='apiCharge'),
-    path('api', viewsApi.listUploaded, name='apiListUploaded'),
-    path('', views.index, name='apiIndex'),
+    path('api/', viewsApi.listUploaded, name='apiListUploaded'),
+    path('/', views.index, name='apiIndex'),
 ]

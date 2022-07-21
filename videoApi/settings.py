@@ -135,8 +135,6 @@ STATIC_URL = '/static/'
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, MEDIA_URL)
 
-FILE_UPLOAD_HANDLERS = ("django.core.files.uploadhandler.MemoryFileUploadHandler",
-                        "django.core.files.uploadhandler.TemporaryFileUploadHandler",)
-
-# System's temporary directory
+# System's temporary directory(Don't have windows, so didn't check for windows server)
+# Use docker containers with linux image, tei vara
 FILE_UPLOAD_TEMP_DIR = "/tmp/"

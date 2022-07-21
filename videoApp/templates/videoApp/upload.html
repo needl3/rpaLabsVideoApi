@@ -1,3 +1,11 @@
+<!-- 
+    How the uploading works:
+    you first send a GET request that requests a videoId to keep track of videos being uploaded
+    then you submit a form with that received id to upload the video at once
+
+    Note: It's non resumable upload and is not recommended
+          Implement chunked upload in production
+-->
 <!DOCTYPE html>
     <head>
         <title>
@@ -17,13 +25,36 @@
                 gap: 1em;
             }
         </style>
+        <script>
+            function postForm(){
+                const f = document.getElementById("Form")
+                const form = new FormData(f);
+                fetch(f.attributes.action.textContent, {
+                    method: "PUT",
+                    headers: {
+                        'Content-Type': 'application/json' 
+                    },
+                    body: JSON.stringify({
+                        title: form.get("title"),
+                        summary: form.get("summary")
+                    })
+                }).then(async (res) =>{
+                    const r = await res.json()
+                    f.children.videoId.value = r["videoId"]
+                    f.submit()
+                }).catch(e => {
+                    alert(e)
+                })
+            }
+        </script>
     </head>
     <body>
-        <form method="POST" enctype="multipart/form-data" action="{% url 'videoApp:apiUpload'%}">
+        <form enctype="multipart/form-data" action="{% url 'videoApp:apiUpload'%}" id="Form" method="POST">
             <input type="file" name="data">
+            <input type="number" name="videoId" hidden>
             <label for="title">Title: <input type="text" name="title" value="Title"></label>
             <label for="summary">Summary: <input type="text" name="summary" value="Summary"></label>
-            <button type="submit">Upload</button> 
+            <button type="button" onclick="postForm()">Upload</button> 
         </form>
     </body>
 </html>
