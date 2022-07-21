@@ -81,16 +81,42 @@ Description: Returns charge for a video upload
 
 Requires:
 
+    {
+        "type(str)": "[mkv / mp4] ie video type",
+        "length(str/int)":"Video length in seconds",
+        "size(int)": "Size of video file"
+    }
+
+Respose:
+
+    Request payload +
+    {
+        "charge" : "<Price in $>"
+            OR
+        "error": "<Validation error message>"
+    }
+
+### **_`/`_**
+
+Type: `GET`
+
+Description: Lists videos uploaded to server
+
+Requires: Noting
+
 Respose:
 
     {
         "message":"Response description",
         "videos": [
             {
+                "id": "<int>"
                 "title":"<TITLE>",
-                "summary":"<VIDEO SUMMARY>",
+                "videoSummary":"<VIDEO SUMMARY>",
                 "type":"<VIDEO TYPE>",
-                "started_at": "<UPLOAD INITIALIZED TIME>"
+                "data": "<UPLOADED_DATA>(Not whole binary just the name)",
+                "created":"<Created timestamp>",
+                "modified":"<entry modified timestamp>"
                 }
         ]
     }
