@@ -46,7 +46,7 @@ Type: `POST`
 Description: Uploads video with logic specified in `upload.html`'s script section inside `templates` directory.
 
 Requires: first `GET` with json body with `{title:<>, summary:<>}` then second `POST` request is a `form submit` with video `data` + received `videoId` from previous `GET`
-Respose:
+Response:
 
     {
         "message": "validation error message(400)/
@@ -60,9 +60,9 @@ Type: `GET`
 
 Description: Lists videos being uploaded to server
 
-Requires: Noting
+Requires: Nothing
 
-Respose:
+Response:
 
     {
         "message":"Response description",
@@ -90,7 +90,7 @@ Requires:
         "size(int)": "Size of video file in KB"
     }
 
-Respose:
+Response:
 
     Request payload +
     {
@@ -105,9 +105,9 @@ Type: `GET`
 
 Description: Lists videos uploaded to server
 
-Requires: Noting
+Requires: Nothing
 
-Respose:
+Response:
 
     {
         "message":"Response description",
