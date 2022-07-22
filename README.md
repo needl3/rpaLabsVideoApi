@@ -43,13 +43,9 @@ All the below endpoints are relative to this root route.
 
 Type: `POST`
 
-Description: Uploads video
+Description: Uploads video with logic specified in `upload.html`'s script section inside `templates` directory.
 
-Requires: `Json` body and `form` data containing file
-
-    -   Json: `{ "title":"Video Title", "summary":"Video Summary", "type": "Video type" }`
-    -   Form: `file` (Video file)
-
+Requires: first `GET` with json body with `{title:<>, summary:<>}` then second `POST` request is a `form submit` with video `data` + received `videoId` from previous `GET`
 Respose:
 
     {
